@@ -13,6 +13,10 @@
 	<name>basic-fhir-connector</name>
 	<description>Spring Boot based Connector for HL7 to FHIR-Repository with Basic Patient Sync</description>
 
+	<properties>
+		<start-class>net.radonfhir.connector.basic.BasicConnectorApplication</start-class>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>net.rad-on-fhir</groupId>
@@ -27,4 +31,12 @@
 		</dependency>
 	</dependencies>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>
