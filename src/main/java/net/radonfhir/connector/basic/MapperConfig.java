@@ -2,9 +2,9 @@ package net.radonfhir.connector.basic;
 
 import ca.uhn.fhir.rest.client.api.IGenericClient;
 import net.radonfhir.connector.base.hl7.HL7Configuration;
-import net.radonfhir.connector.base.hl7.mapper.AppointmentSIUMapper;
-import net.radonfhir.connector.base.hl7.mapper.PatientAdt231Mapper;
-import net.radonfhir.connector.base.hl7.mapper.PatientAdt25Mapper;
+import net.radonfhir.connector.base.hl7.mapper.appointments.AppointmentSIUMapper;
+import net.radonfhir.connector.base.hl7.mapper.patient.PatientAdt231Mapper;
+import net.radonfhir.connector.base.hl7.mapper.patient.PatientAdt25Mapper;
 import net.radonfhir.connector.base.organization.OrganizationService;
 import net.radonfhir.connector.base.patient.loader.FhirClientLoader;
 import org.springframework.beans.factory.annotation.Autowired;
