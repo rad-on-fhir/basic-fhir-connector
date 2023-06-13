@@ -7,6 +7,7 @@ import net.radonfhir.connector.base.hl7.mapper.patient.PatientAdt231Mapper;
 import net.radonfhir.connector.base.hl7.mapper.patient.PatientAdt25Mapper;
 import net.radonfhir.connector.base.organization.OrganizationService;
 import net.radonfhir.connector.base.patient.loader.FhirClientLoader;
+import net.radonfhir.connector.base.sync.SyncPackageProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -22,8 +23,8 @@ public class MapperConfig {
             value = "hl7.mapper.siu",
             havingValue = "true"
     )
-    public AppointmentSIUMapper appointmentSIUMapper(OrganizationService orga, HL7Configuration config, IGenericClient client, FhirClientLoader fhirClient) {
-        return new AppointmentSIUMapper(orga, config, client, fhirClient);
+    public AppointmentSIUMapper appointmentSIUMapper(OrganizationService orga, HL7Configuration config, IGenericClient client, FhirClientLoader fhirClient, SyncPackageProvider packageProvider) {
+        return new AppointmentSIUMapper(orga, config, client, fhirClient, packageProvider);
     }
 
     @Bean
@@ -32,8 +33,8 @@ public class MapperConfig {
             value ="mllp.version",
             havingValue = "2.3.1"
     )
-    public PatientAdt231Mapper patientAdt231Mapper(OrganizationService organizationService, HL7Configuration configuration, FhirClientLoader fhirClient) {
-        return new PatientAdt231Mapper(organizationService, configuration, fhirClient, fhirClient);
+    public PatientAdt231Mapper patientAdt231Mapper(OrganizationService organizationService, HL7Configuration configuration, FhirClientLoader fhirClient, SyncPackageProvider packageProvider) {
+        return new PatientAdt231Mapper(organizationService, configuration, fhirClient, fhirClient, packageProvider);
     }
 
     @Bean
@@ -43,8 +44,8 @@ public class MapperConfig {
             havingValue = "2.5",
             matchIfMissing = true
     )
-    public PatientAdt25Mapper patientAdt25Mapper(OrganizationService organizationService, HL7Configuration configuration, FhirClientLoader fhirClient) {
-        return new PatientAdt25Mapper(organizationService, configuration, fhirClient, fhirClient);
+    public PatientAdt25Mapper patientAdt25Mapper(OrganizationService organizationService, HL7Configuration configuration, FhirClientLoader fhirClient, SyncPackageProvider packageProvider) {
+        return new PatientAdt25Mapper(organizationService, configuration, fhirClient, fhirClient, packageProvider);
     }
 
 
