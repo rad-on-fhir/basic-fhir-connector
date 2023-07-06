@@ -5,11 +5,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"net.radonfhir.connector"})
-@ConfigurationPropertiesScan(basePackages = {"net.radonfhir.connector"})
+@ComponentScan(basePackages = {"net.radonfhir.connector", "ca"})
+@ConfigurationPropertiesScan(basePackages = {"net.radonfhir.connector", "ca"})
 @EnableConfigurationProperties()
+@EnableScheduling
 public class BasicConnectorApplication {
 
     public static void main(String[] args) {
